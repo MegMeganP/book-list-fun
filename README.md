@@ -1,24 +1,9 @@
-# README
+This project is in progress.  This app will be a place where a user can keep a list of books, along with their ratings and notes.  There will be social capabilities, where friends can be made, other book lists can be viewed, and books can be recommended.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ruby on Rails project
+Created with:
+Ruby 3.2.1
+Rails 7
+Postgres database
+Devise authentication
+RSpec testing
