@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :books
   get 'home/index'
   devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   get 'books/home'
   get 'books/index'
   get 'books/show'
