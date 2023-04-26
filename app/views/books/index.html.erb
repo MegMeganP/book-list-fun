@@ -12,3 +12,21 @@
 </div>
 
 <%= link_to "New book", new_book_path %>
+
+<p>All Books</p>
+
+<% if @user == current_user %>
+  <% @books = Book.find_by_user_id(@user.id) %>
+<% if @books.any? %>
+  <% @books.each do |book| %>
+    <%= book.title  %>
+    <%= book.author  %>
+    <%= book.category %>
+    <%= book.created_at %>
+    <%= book.updated_at %>
+
+  <% end %>
+<% else %>
+  <p>You don't have any books.</p>
+<% end %>
+<% end %>
