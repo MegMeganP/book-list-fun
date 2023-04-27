@@ -15,18 +15,39 @@
 
 <p>All Books</p>
 
+<% if signed_in? %>
+  <%= link_to "edit registration", edit_user_registration_path(id: current_user.id) %>
+  <h1>My Books</h1>
+
+  <% @books = Book.all %>
+
+  <% if @books %>
+    <% @books.each do |book| %>
+      <% if book.user_id == current_user.id %>
+        <%= book.title %>
+        <%= book.author %>
+        <%= book.category %>
+        <%= book.created_at %>
+        <%= book.updated_at %>
+      <% else %>
+        <p>You don't have any books.</p>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <% if @user == current_user %>
   <% @books = Book.find_by_user_id(@user.id) %>
-<% if @books.any? %>
-  <% @books.each do |book| %>
-    <%= book.title  %>
-    <%= book.author  %>
-    <%= book.category %>
-    <%= book.created_at %>
-    <%= book.updated_at %>
+  <% if @books.any? %>
+    <% @books.each do |book| %>
+      <%= book.title %>
+      <%= book.author %>
+      <%= book.category %>
+      <%= book.created_at %>
+      <%= book.updated_at %>
 
+    <% end %>
+  <% else %>
+    <p>You don't have any books.</p>
   <% end %>
-<% else %>
-  <p>You don't have any books.</p>
-<% end %>
 <% end %>

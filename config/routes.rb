@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   get 'books/home'
   get 'books/index'
   get 'books/show'
-  get 'books/only_see_own_books' => 'books#only_see_own_books', :as => 'user_books_path'
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

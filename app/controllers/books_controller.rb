@@ -59,17 +59,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/only_see_own_books/1 or /books/only_see_own_books/1.json
-  def only_see_own_books
-    @user = User.find(params[:id])
-
-    if current_user != @user
-      redirect_to root_path, notice: "Sorry, but you are only allowed to view your own book page."
-    end
-
-    @books = current_user.books.where(user_id: current_user.id)
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
