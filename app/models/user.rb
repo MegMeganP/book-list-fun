@@ -7,3 +7,5 @@ class User < ApplicationRecord
 
   has_many :books
 end
+
+# testUser1@testUser1.com testUser1 , testUser2@testUser.com , testUser2

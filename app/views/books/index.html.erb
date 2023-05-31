@@ -29,25 +29,14 @@
         <%= book.category %>
         <%= book.created_at %>
         <%= book.updated_at %>
-      <% else %>
-        <p>You don't have any books.</p>
       <% end %>
     <% end %>
   <% end %>
-<% end %>
-
-<% if @user == current_user %>
-  <% @books = Book.find_by_user_id(@user.id) %>
-  <% if @books.any? %>
-    <% @books.each do |book| %>
-      <%= book.title %>
-      <%= book.author %>
-      <%= book.category %>
-      <%= book.created_at %>
-      <%= book.updated_at %>
-
-    <% end %>
-  <% else %>
-    <p>You don't have any books.</p>
+  <% if @books.where(user_id: current_user.id).empty? %>
+    <p>You have no books</p>
   <% end %>
 <% end %>
+
+
+
+
